@@ -9460,6 +9460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 300
+  greenGrass: {fileID: 11400000, guid: cc5cf6cdf1ee54490942ae62c033d3ea, type: 2}
+  groundTilemap: {fileID: 1840269505}
 --- !u!61 &2023765815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9611,7 +9613,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -9654,6 +9656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 300
+  purpleGrass: {fileID: 11400000, guid: 54285abbdf81b41a49fac8a4c71dc7d8, type: 2}
+  groundTilemap: {fileID: 1840269505}
 --- !u!212 &2096628340
 SpriteRenderer:
   m_ObjectHideFlags: 0

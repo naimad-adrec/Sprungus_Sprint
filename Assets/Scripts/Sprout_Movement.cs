@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Sprout_Movement : MonoBehaviour
 {
@@ -9,10 +10,14 @@ public class Sprout_Movement : MonoBehaviour
 
     private Vector2 playerInput;
     private Vector2 movement;
+    private Vector3Int sproutPosition;
 
     [SerializeField] private float moveSpeed = 5f;
     private float dirX = 0f;
     private float dirY = 0f;
+
+    [SerializeField] private Tile greenGrass;
+    [SerializeField] private Tilemap groundTilemap;
 
     private void Start()
     {
@@ -29,7 +34,14 @@ public class Sprout_Movement : MonoBehaviour
     private void FixedUpdate()
     {
         playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
-        movement = new Vector2(dirX * moveSpeed * Time.fixedDeltaTime, dirY * moveSpeed * Time.fixedDeltaTime);
+        movement = new Vector2Int(Mathf.RoundToInt(dirX * moveSpeed * Time.fixedDeltaTime) , Mathf.RoundToInt(dirY * moveSpeed * Time.fixedDeltaTime));
         rb.velocity = movement;
+        sproutPosition = new Vector3Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), Mathf.RoundToInt(transform.position.z));
+        Root();
+    }
+
+    private void Root()
+    {
+        groundTilemap.SetTile(sproutPosition, greenGrass);
     }
 }
