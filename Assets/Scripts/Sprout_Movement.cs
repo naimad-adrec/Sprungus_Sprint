@@ -7,6 +7,8 @@ public class Sprout_Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private BoxCollider2D coll;
+    private Animator anim;
+    private SpriteRenderer sp;
 
     private Vector2 playerInput;
     private Vector2 movement;
@@ -23,6 +25,8 @@ public class Sprout_Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
+        sp = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -33,6 +37,29 @@ public class Sprout_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (dirX < 0)
+        {
+            anim.SetInteger("State", 1);
+            sp.flipX = false;
+        }
+        else if (dirX > 0)
+        {
+            anim.SetInteger("State", 1);
+            sp.flipX = true;
+        }
+        else if (dirY < 0)
+        {
+            anim.SetInteger("State", 3);
+        }
+        else if (dirY > 0)
+        {
+            anim.SetInteger("State", 2);
+        }
+        else
+        {
+            anim.SetInteger("State", 0);
+        }
+
         playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
         movement = new Vector2Int(Mathf.RoundToInt(dirX * moveSpeed * Time.fixedDeltaTime) , Mathf.RoundToInt(dirY * moveSpeed * Time.fixedDeltaTime));
         rb.velocity = movement;
