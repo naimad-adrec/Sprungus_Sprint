@@ -8,13 +8,15 @@ public class Sprout_Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private BoxCollider2D coll;
+    private Animator anim;
+    private SpriteRenderer sp;
     [SerializeField] private Slider waterSlider;
 
     private Vector2 playerInput;
     private Vector2 movement;
     private Vector3Int sproutPosition;
 
-    [SerializeField] private float currentMoveSpeed = 5f;
+    private float currentMoveSpeed;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float noWaterMoveSpeed = 2.5f;
     private float dirX = 0f;
@@ -28,6 +30,10 @@ public class Sprout_Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
+        sp = GetComponent<SpriteRenderer>();
+
+        currentMoveSpeed = moveSpeed;
     }
 
     private void Update()
@@ -38,6 +44,29 @@ public class Sprout_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (dirX < 0)
+        {
+            anim.SetInteger("State", 1);
+            sp.flipX = false;
+        }
+        else if (dirX > 0)
+        {
+            anim.SetInteger("State", 1);
+            sp.flipX = true;
+        }
+        else if (dirY < 0)
+        {
+            anim.SetInteger("State", 3);
+        }
+        else if (dirY > 0)
+        {
+            anim.SetInteger("State", 2);
+        }
+        else
+        {
+            anim.SetInteger("State", 0);
+        }
+
         playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
         movement = new Vector2Int(Mathf.RoundToInt(dirX * currentMoveSpeed * Time.fixedDeltaTime) , Mathf.RoundToInt(dirY * currentMoveSpeed * Time.fixedDeltaTime));
         rb.velocity = movement;
