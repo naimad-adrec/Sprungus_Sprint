@@ -540,20 +540,6 @@ CompositeCollider2D:
   - m_Collider: {fileID: 1262452487}
     m_ColliderPaths:
     - - X: 150000000
-        Y: 29999900
-      - X: 150000041
-        Y: 29999900
-      - X: 150000100
-        Y: 29999959
-      - X: 150000100
-        Y: 40000041
-      - X: 150000041
-        Y: 40000100
-      - X: 139999959
-        Y: 40000100
-      - X: 139999900
-        Y: 40000041
-      - X: 139999900
         Y: 40000000
       - X: 130000000
         Y: 40000000
@@ -595,28 +581,16 @@ CompositeCollider2D:
         Y: 30000000
       - X: -130000000
         Y: 40000000
-      - X: -139999900
+      - X: -150000000
         Y: 40000000
-      - X: -139999900
-        Y: 39999959
-      - X: -139999959
-        Y: 39999900
       - X: -150000000
-        Y: 39999900
-      - X: -150000000
-        Y: -39999900
-      - X: -139999959
-        Y: -39999900
-      - X: -139999900
-        Y: -39999959
-      - X: -139999900
         Y: -40000000
       - X: -130000000
         Y: -40000000
   m_CompositePaths:
     m_Paths:
     - - {x: 14.999971, y: -4}
-      - {x: 14.999974, y: 4.00001}
+      - {x: 14.999971, y: 4}
       - {x: 13, y: 3.999971}
       - {x: 12.99997, y: 3}
       - {x: 12, y: 2.999971}
@@ -637,8 +611,8 @@ CompositeCollider2D:
       - {x: -12.00003, y: 3}
       - {x: -13, y: 3.0000293}
       - {x: -13.00003, y: 4}
-      - {x: -15, y: 3.999961}
-      - {x: -14.999971, y: -3.99999}
+      - {x: -15, y: 3.999971}
+      - {x: -14.999971, y: -4}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &1262452486
@@ -1350,7 +1324,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840269502}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8990,7 +8964,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -17, y: -11, z: 0}
   m_Size: {x: 34, y: 22, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileAnchor: {x: 0, y: -1, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -9440,6 +9414,7 @@ GameObject:
   - component: {fileID: 2023765816}
   - component: {fileID: 2023765815}
   - component: {fileID: 2023765814}
+  - component: {fileID: 2023765819}
   m_Layer: 0
   m_Name: Sprout_Player
   m_TagString: Untagged
@@ -9475,18 +9450,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03481293, y: -0.5898412}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8065968, y: 0.7156097}
   m_EdgeRadius: 0
 --- !u!50 &2023765816
 Rigidbody2D:
@@ -9550,8 +9525,8 @@ SpriteRenderer:
   m_SortingLayerID: 1715189375
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.9433962, b: 0.12874334, a: 1}
+  m_Sprite: {fileID: -1648236650, guid: 8ef115bc86c4b4b94884cae053a65422, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9569,13 +9544,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023765813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: 0}
+  m_LocalPosition: {x: -9.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2023765819
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023765813}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e072520d8ed1c4b1696332b975c1c0e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2096628336
 GameObject:
   m_ObjectHideFlags: 0
@@ -9589,6 +9584,7 @@ GameObject:
   - component: {fileID: 2096628339}
   - component: {fileID: 2096628338}
   - component: {fileID: 2096628337}
+  - component: {fileID: 2096628342}
   m_Layer: 0
   m_Name: Shroom_Player
   m_TagString: Untagged
@@ -9630,18 +9626,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.034812927, y: -0.5898412}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.80659676, y: 0.71560967}
   m_EdgeRadius: 0
 --- !u!114 &2096628339
 MonoBehaviour:
@@ -9699,8 +9695,8 @@ SpriteRenderer:
   m_SortingLayerID: 1715189375
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.8835707, a: 1}
+  m_Sprite: {fileID: -768643048, guid: fa3dc6507e705406a9b4cac7c45a59d8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9725,3 +9721,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2096628342
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096628336}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 29b0c5ab9acaa42b7ae8927517671ef1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
