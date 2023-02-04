@@ -28,7 +28,7 @@ public class Shroom_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerInput = new Vector2(dirX, dirY).normalized;
+        playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
         movement = new Vector2(dirX * moveSpeed * Time.fixedDeltaTime, dirY * moveSpeed * Time.fixedDeltaTime);
         rb.velocity = movement;
     }
