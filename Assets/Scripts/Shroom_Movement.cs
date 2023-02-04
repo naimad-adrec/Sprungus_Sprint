@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Shroom_Movement : MonoBehaviour
 {
@@ -22,14 +23,39 @@ public class Shroom_Movement : MonoBehaviour
 
     private void Update()
     {
-        dirX = Input.GetAxisRaw("Horizontal P2");
-        dirY = Input.GetAxisRaw("Vertical P2");
-    }
-
-    private void FixedUpdate()
-    {
-        playerInput = new Vector2(dirX, dirY).normalized;
-        movement = new Vector2(dirX * moveSpeed * Time.fixedDeltaTime, dirY * moveSpeed * Time.fixedDeltaTime);
-        rb.velocity = movement;
+        if (Input.GetKeyDown("up"))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        }
+        if (Input.GetKeyDown("down"))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+        }
+        if (Input.GetKeyDown("right"))
+        {
+            transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+        }
+        if (Input.GetKeyDown("left"))
+        {
+            transform.position = new Vector3(transform.position.x - 1, transform.position.y , transform.position.z);
+        }
     }
 }
+
+
+//if (Input.GetKeyDown("up"))
+//{
+//    transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+//}
+//if (Input.GetKeyDown("down"))
+//{
+//    transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+//}
+//if (Input.GetKeyDown("right"))
+//{
+//    transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+//}
+//if (Input.GetKeyDown("left"))
+//{
+//    transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+//}

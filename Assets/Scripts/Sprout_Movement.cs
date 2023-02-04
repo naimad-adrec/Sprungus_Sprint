@@ -29,7 +29,7 @@ public class Sprout_Movement : MonoBehaviour
     private void FixedUpdate()
     {
         playerInput = new Vector2(dirX, dirY).normalized;
-        movement = new Vector2(dirX * moveSpeed * Time.fixedDeltaTime, dirY * moveSpeed * Time.fixedDeltaTime);
+        movement = new Vector2(playerInput.x * moveSpeed * Time.fixedDeltaTime, playerInput.y * moveSpeed * Time.fixedDeltaTime);
         rb.velocity = movement;
     }
 }
