@@ -16,7 +16,7 @@ public class Sprout_Movement : MonoBehaviour
     private Vector2 movement;
     private Vector3Int sproutPosition;
 
-    [SerializeField] private float currentMoveSpeed = 5f;
+    private float currentMoveSpeed;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float noWaterMoveSpeed = 2.5f;
     private float dirX = 0f;
@@ -32,6 +32,8 @@ public class Sprout_Movement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
+
+        currentMoveSpeed = moveSpeed;
     }
 
     private void Update()

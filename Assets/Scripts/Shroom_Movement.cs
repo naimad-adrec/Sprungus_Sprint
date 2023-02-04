@@ -16,7 +16,7 @@ public class Shroom_Movement : MonoBehaviour
     private Vector2 movement;
     private Vector3Int shroomPosition;
 
-    [SerializeField] private float currentMoveSpeed = 5f;
+    private float currentMoveSpeed;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float noWaterMoveSpeed = 2.5f;
     private float dirX = 0f;
@@ -32,6 +32,8 @@ public class Shroom_Movement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
+
+        currentMoveSpeed = moveSpeed;
     }
 
     private void Update()
@@ -68,6 +70,7 @@ public class Shroom_Movement : MonoBehaviour
         playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
         movement = new Vector2Int(Mathf.RoundToInt(dirX * currentMoveSpeed * Time.fixedDeltaTime), Mathf.RoundToInt(dirY * currentMoveSpeed * Time.fixedDeltaTime));
         rb.velocity = movement;
+
         if ((rb.velocity.x != 0) || (rb.velocity.y != 0))
         {
             waterSlider.value -= .075f / 30f;
