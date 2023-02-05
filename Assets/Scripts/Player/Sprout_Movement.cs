@@ -11,22 +11,27 @@ public class Sprout_Movement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sp;
 
+    //UI variables
     [SerializeField] private Slider waterSlider;
 
+    //vector variables
     private Vector2 playerInput;
     private Vector2 movement;
     private Vector3Int sproutPosition;
 
+    //move speed variables
     [SerializeField] private float moveSpeed = 300f;
     [SerializeField] private float noWaterMoveSpeed = 150f;
+    [SerializeField] private float waterDrainRate = 0.075f;
     private float currentMoveSpeed;
     private float dirX = 0f;
     private float dirY = 0f;
-    private float waterDrainRate = 0.075f;
 
+    //tilemap variables
     [SerializeField] private Tile greenGrass;
     [SerializeField] private Tilemap groundTilemap;
 
+    //power up variables
     [SerializeField] private int fertPowerUpTime = 5;
 
     private void Start()
@@ -44,10 +49,6 @@ public class Sprout_Movement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal P1");
         dirY = Input.GetAxisRaw("Vertical P1");
-        if(Input.GetKeyDown("k"))
-        {
-            gameover();
-        }
     }
 
     private void FixedUpdate()
@@ -104,57 +105,10 @@ public class Sprout_Movement : MonoBehaviour
 
     private void Root()
     {
-        //Debug.Log(groundTilemap.GetTile(sproutPosition));
-        groundTilemap.SetTile(sproutPosition, greenGrass);
-        
-    }
-    private List<int> tileCount()
-    {
-        int grassCount = 0;
-        int fungusCount = 0;
-        int dirtCount = 0;
-        for (int x = -15; x < 15; x++)
-        {
-            for (int y = -8; y < 8; y++)
-            {
-                Vector3Int m_Position = new Vector3Int(x, y, 0);
-                TileBase tileProperties = groundTilemap.GetTile(m_Position);
-                if (tileProperties.name == "Tiles_3")
-                {
-                    grassCount += 1;
-                }
-                else if (tileProperties.name == "Tiles_29")
-                {
-                    fungusCount += 1;
-                }
-                else 
-                {
-                    dirtCount += 1;
-                }
-
-
-            }
-        }
-        List<int> counts = new List<int>
-        {
-            grassCount,
-            fungusCount,
-            dirtCount
-        };
-        return counts;
+        groundTilemap.SetTile(sproutPosition, greenGrass);       
     }
 
-
-    private void gameover()
-    {
-        List<int> myList = tileCount();
-        //Debug.Log(tileCount());
-        foreach (var x in myList)
-        {
-            Debug.Log(x.ToString());
-        }
-    }
-
+    //player collides with water source
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Sprout_Water"))
@@ -163,6 +117,7 @@ public class Sprout_Movement : MonoBehaviour
         }
     }
 
+    //when player collides with powerups
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Fert"))
@@ -175,6 +130,7 @@ public class Sprout_Movement : MonoBehaviour
         }
     }
 
+    //Set drain rate to zero for certain amount of time
     private IEnumerator FertPowerUp()
     {
         waterDrainRate = 0f;
