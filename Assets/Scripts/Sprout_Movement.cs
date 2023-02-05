@@ -44,6 +44,10 @@ public class Sprout_Movement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal P1");
         dirY = Input.GetAxisRaw("Vertical P1");
+        if(Input.GetKeyDown("k"))
+        {
+            gameover();
+        }
     }
 
     private void FixedUpdate()
@@ -100,7 +104,55 @@ public class Sprout_Movement : MonoBehaviour
 
     private void Root()
     {
+        //Debug.Log(groundTilemap.GetTile(sproutPosition));
         groundTilemap.SetTile(sproutPosition, greenGrass);
+        
+    }
+    private List<int> tileCount()
+    {
+        int grassCount = 0;
+        int fungusCount = 0;
+        int dirtCount = 0;
+        for (int x = -15; x < 15; x++)
+        {
+            for (int y = -8; y < 8; y++)
+            {
+                Vector3Int m_Position = new Vector3Int(x, y, 0);
+                TileBase tileProperties = groundTilemap.GetTile(m_Position);
+                if (tileProperties.name == "Tiles_3")
+                {
+                    grassCount += 1;
+                }
+                else if (tileProperties.name == "Tiles_29")
+                {
+                    fungusCount += 1;
+                }
+                else 
+                {
+                    dirtCount += 1;
+                }
+
+
+            }
+        }
+        List<int> counts = new List<int>
+        {
+            grassCount,
+            fungusCount,
+            dirtCount
+        };
+        return counts;
+    }
+
+
+    private void gameover()
+    {
+        List<int> myList = tileCount();
+        //Debug.Log(tileCount());
+        foreach (var x in myList)
+        {
+            Debug.Log(x.ToString());
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
