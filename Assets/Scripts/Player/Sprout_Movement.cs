@@ -18,7 +18,7 @@ public class Sprout_Movement : MonoBehaviour
 
     //vector variables
     private Vector2 playerInput;
-    private Vector2 movement;
+    public Vector2 movement;
     private Vector3Int sproutPosition;
     [SerializeField] private Vector3 originalSpawnPosition = new Vector3(-9.5f, 0, 0);
 
@@ -139,6 +139,10 @@ public class Sprout_Movement : MonoBehaviour
         {
             audio.Play();
             waterSlider.value = 1f;
+        }
+        if (collision.gameObject.CompareTag("Bee"))
+        {
+            audio.Play();
         }
     }
 

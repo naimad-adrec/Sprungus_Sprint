@@ -21,6 +21,7 @@ public class Shroom_Movement : MonoBehaviour
     private Vector2 playerInput;
     private Vector2 movement;
     private Vector3Int shroomPosition;
+    [SerializeField] private Vector3 originalSpawnPosition = new Vector3(9.5f, 0, 0);
 
     //Movement variables
 
@@ -162,6 +163,10 @@ public class Shroom_Movement : MonoBehaviour
             transform.localScale = new Vector3(2, 2, transform.localScale.z);
             big = true;
             StartCoroutine(ApplePowerUp());
+        }
+        if (collision.gameObject.CompareTag("Bee"))
+        {
+            transform.position = originalSpawnPosition;
         }
     }
 

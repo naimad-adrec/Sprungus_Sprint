@@ -11,6 +11,8 @@ TagManager:
   - Shroom
   - Fert
   - Apple
+  - Bee
+  - Wall
   layers:
   - Default
   - TransparentFX
