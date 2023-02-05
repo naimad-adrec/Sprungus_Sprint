@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/End_TitleScene/TitleUIscene.unity
     guid: a1c0b4154adcc428a94827a3a7b0cbf0
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: f9b097ea57ac2430fad8d89fb5a12bcb
+    path: Assets/Scenes/New Main Scene.unity
+    guid: 86f6a469be8cf4fcaaeee23a8ff8c030
   - enabled: 1
     path: Assets/Scenes/End_TitleScene/ResultScene.unity
     guid: 4048705e0d30f4dc4a26a1174b2f1c29
