@@ -167,6 +167,7 @@ public class Shroom_Movement : MonoBehaviour
         if (collision.gameObject.CompareTag("Bee"))
         {
             transform.position = originalSpawnPosition;
+            big = false;
         }
     }
 

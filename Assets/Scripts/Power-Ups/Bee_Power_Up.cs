@@ -8,6 +8,7 @@ public class Bee_Power_Up : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     public Sprout_Movement sprout;
+    private AudioSource audio;
 
     [SerializeField] private Tilemap groundTilemap;
     [SerializeField] private Tile greenGrass;
@@ -21,6 +22,7 @@ public class Bee_Power_Up : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        audio = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -39,6 +41,7 @@ public class Bee_Power_Up : MonoBehaviour
             beeMovement = sprout.movement;
             rb.velocity = beeMovement;
             beeCollected = true;
+            audio.Play();
         }
 
         if (collision.gameObject.CompareTag("Wall"))
