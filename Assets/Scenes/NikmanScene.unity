@@ -345,7 +345,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &165675734
 GameObject:
@@ -623,7 +623,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &387275030
 GameObject:
@@ -1013,6 +1013,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &583180908
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1171477107654911824, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_Name
+      value: Water Power Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.6801643
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.9773636
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171477107654911829, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 492d440ca3b8343499f0a9d4c508bb19, type: 3}
 --- !u!1 &619442311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,6 +1107,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &653275801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.6408464
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.2270877
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239107, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273307663948239116, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
+      propertyPath: m_Name
+      value: Fert Power Up
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c130456f9b3cd46d2ab15978dd5c8163, type: 3}
 --- !u!1 &837459088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1346,7 @@ Transform:
   - {fileID: 1845335667}
   - {fileID: 387275031}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1220259924
 GameObject:
@@ -1278,7 +1392,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1262452483
 GameObject:
@@ -1896,7 +2010,7 @@ RectTransform:
   - {fileID: 165675735}
   - {fileID: 837459089}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2177,7 +2291,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1495072870
 GameObject:
@@ -2288,7 +2402,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606911312
 GameObject:
@@ -11169,7 +11283,7 @@ GameObject:
   - component: {fileID: 2023765819}
   m_Layer: 0
   m_Name: Sprout_Player
-  m_TagString: Untagged
+  m_TagString: Sprout
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11191,6 +11305,7 @@ MonoBehaviour:
   noWaterMoveSpeed: 150
   greenGrass: {fileID: 11400000, guid: cc5cf6cdf1ee54490942ae62c033d3ea, type: 2}
   groundTilemap: {fileID: 1840269505}
+  fertPowerUpTime: 5
 --- !u!61 &2023765815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11303,7 +11418,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2023765819
 Animator:
@@ -11341,7 +11456,7 @@ GameObject:
   - component: {fileID: 2096628342}
   m_Layer: 0
   m_Name: Shroom_Player
-  m_TagString: Untagged
+  m_TagString: Shroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11408,8 +11523,10 @@ MonoBehaviour:
   waterSlider: {fileID: 165675736}
   moveSpeed: 300
   noWaterMoveSpeed: 150
+  waterDrainRate: 0.075
   purpleGrass: {fileID: 11400000, guid: 54285abbdf81b41a49fac8a4c71dc7d8, type: 2}
   groundTilemap: {fileID: 1840269505}
+  fertPowerUpTime: 5
 --- !u!212 &2096628340
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11475,7 +11592,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2096628342
 Animator:
