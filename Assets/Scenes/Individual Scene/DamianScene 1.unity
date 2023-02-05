@@ -1656,6 +1656,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1392749241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8031737480087616397, guid: f3c785f5f373744788bb182bfc0006b2, type: 3}
+  m_PrefabInstance: {fileID: 8031737480949021182}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d16237ba3ab482dac8f3730d5a9ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1437383615
 GameObject:
   m_ObjectHideFlags: 0
@@ -11063,6 +11074,63 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &389725544605564062
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.81844896
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025988, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389725543942025993, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
+      propertyPath: m_Name
+      value: Apple Power Up
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c0e6037e13384e54bfccd3b41780cd1, type: 3}
 --- !u!1001 &2364264938900876335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11115,6 +11183,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2364264936898091801, guid: 5268afebba6834f6096d07de55c48f62, type: 3}
+      propertyPath: shroom
+      value: 
+      objectReference: {fileID: 1392749241}
+    - target: {fileID: 2364264936898091801, guid: 5268afebba6834f6096d07de55c48f62, type: 3}
       propertyPath: waterSlider
       value: 
       objectReference: {fileID: 1063933304}
@@ -11122,6 +11194,10 @@ PrefabInstance:
       propertyPath: groundTilemap
       value: 
       objectReference: {fileID: 1840269505}
+    - target: {fileID: 2364264936898091801, guid: 5268afebba6834f6096d07de55c48f62, type: 3}
+      propertyPath: originalSpawnPosition.x
+      value: -9.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2364264936898091802, guid: 5268afebba6834f6096d07de55c48f62, type: 3}
       propertyPath: m_Name
       value: Sprout_Player

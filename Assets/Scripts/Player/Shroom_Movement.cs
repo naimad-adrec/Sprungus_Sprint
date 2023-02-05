@@ -10,6 +10,7 @@ public class Shroom_Movement : MonoBehaviour
     private BoxCollider2D coll;
     private Animator anim;
     private SpriteRenderer sp;
+    private AudioSource audio;
 
     //UI variables
 
@@ -38,6 +39,8 @@ public class Shroom_Movement : MonoBehaviour
     //Power-up variables
 
     [SerializeField] private int fertPowerUpTime = 5;
+    [SerializeField] private int applePowerUpTime = 5;
+    public bool big;
 
     private void Start()
     {
@@ -45,8 +48,10 @@ public class Shroom_Movement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
+        audio = GetComponent<AudioSource>();
 
         currentMoveSpeed = moveSpeed;
+        big = false;
     }
 
     //Get user input
@@ -110,7 +115,18 @@ public class Shroom_Movement : MonoBehaviour
 
     private void Root()
     {
-        groundTilemap.SetTile(shroomPosition, purpleGrass);
+        if (big == false)
+        {
+            groundTilemap.SetTile(new Vector3Int(shroomPosition.x, shroomPosition.y, shroomPosition.z), purpleGrass);
+        }
+
+        if (big == true)
+        {
+            groundTilemap.SetTile(new Vector3Int(shroomPosition.x, shroomPosition.y - 1, shroomPosition.z), purpleGrass);
+            groundTilemap.SetTile(new Vector3Int(shroomPosition.x -1 , shroomPosition.y - 1, shroomPosition.z), purpleGrass);
+            groundTilemap.SetTile(new Vector3Int(shroomPosition.x - 1, shroomPosition.y, shroomPosition.z), purpleGrass);
+            groundTilemap.SetTile(new Vector3Int(shroomPosition.x, shroomPosition.y, shroomPosition.z), purpleGrass);
+        }
     }
 
     //player collides with water source
@@ -121,6 +137,10 @@ public class Shroom_Movement : MonoBehaviour
         {
             waterSlider.value = 1f;
         }
+        if (collision.gameObject.CompareTag("Sprout"))
+        {
+            transform.localScale = new Vector3(1, 1, transform.localScale.z);
+        }
     }
 
     //player collides with power-up
@@ -128,11 +148,20 @@ public class Shroom_Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Fert"))
         {
+            audio.Play();
             StartCoroutine(FertPowerUp());
         }
         if (collision.gameObject.CompareTag("Water"))
         {
+            audio.Play();
             waterSlider.value = 1f;
+        }
+        if (collision.gameObject.CompareTag("Apple"))
+        {
+            audio.Play();
+            transform.localScale = new Vector3(2, 2, transform.localScale.z);
+            big = true;
+            StartCoroutine(ApplePowerUp());
         }
     }
 
@@ -141,5 +170,12 @@ public class Shroom_Movement : MonoBehaviour
         waterDrainRate = 0f;
         yield return new WaitForSeconds(fertPowerUpTime);
         waterDrainRate = 0.075f;
+    }
+
+    private IEnumerator ApplePowerUp()
+    {
+        yield return new WaitForSeconds(applePowerUpTime);
+        transform.localScale = new Vector3(1, 1, transform.localScale.z);
+        big = false;
     }
 }

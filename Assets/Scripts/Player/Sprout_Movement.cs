@@ -10,6 +10,8 @@ public class Sprout_Movement : MonoBehaviour
     private BoxCollider2D coll;
     private Animator anim;
     private SpriteRenderer sp;
+    private AudioSource audio;
+    public Shroom_Movement shroom;
 
     //UI variables
     [SerializeField] private Slider waterSlider;
@@ -18,6 +20,7 @@ public class Sprout_Movement : MonoBehaviour
     private Vector2 playerInput;
     private Vector2 movement;
     private Vector3Int sproutPosition;
+    [SerializeField] private Vector3 originalSpawnPosition = new Vector3(-9.5f, 0, 0);
 
     //move speed variables
     [SerializeField] private float moveSpeed = 300f;
@@ -40,6 +43,7 @@ public class Sprout_Movement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
+        audio = GetComponent<AudioSource>();
 
         currentMoveSpeed = moveSpeed;
     }
@@ -115,6 +119,12 @@ public class Sprout_Movement : MonoBehaviour
         {
             waterSlider.value = 1f;
         }
+        if (collision.gameObject.CompareTag("Shroom") && shroom.big == true)
+        {
+            Debug.Log("Spawn");
+            transform.position = originalSpawnPosition;
+            shroom.big = false;
+        }
     }
 
     //when player collides with powerups
@@ -122,10 +132,12 @@ public class Sprout_Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Fert"))
         {
+            audio.Play();
             StartCoroutine(FertPowerUp());
         }
         if (collision.gameObject.CompareTag("Water"))
         {
+            audio.Play();
             waterSlider.value = 1f;
         }
     }
