@@ -12,10 +12,12 @@ public class Powerup_Randomization : MonoBehaviour
     [SerializeField] private Tile rock;
     [SerializeField] private int numRocks = 10;
     //dimensions of the grid
-    private int leftx = -11;
-    private int rightx = +10;
-    private int downy = -8;
-    private int upy = +7;
+    [SerializeField] private int leftx = -11;
+    [SerializeField] private int rightx = +10;
+    [SerializeField] private int downy = -8;
+    [SerializeField] private int upy = +7;
+    private int xCoord;
+    private int yCoord;
 
     private bool isSpawning;
     private bool spawned = false;
@@ -41,8 +43,10 @@ public class Powerup_Randomization : MonoBehaviour
         {
 
 
-            int xCoord = Random.Range(leftx, rightx);
-            int yCoord = Random.Range(downy, upy);
+            //xCoord = Random.Range(-22, 21);
+            //yCoord = Random.Range(-12, 11);
+            xCoord = Random.Range(leftx, rightx);
+            yCoord = Random.Range(downy, upy);
             spawned = false;
 
             while (spawned is false)
@@ -52,12 +56,12 @@ public class Powerup_Randomization : MonoBehaviour
 
 
                 rockTilemap.SetTile(m_Position, rock);
-
+                Debug.Log(tileProperties);
                 if ((tileProperties.name == "Tiles_3") || (tileProperties.name == "Tiles_29") || (tileProperties.name == "Tiles_4") || (tileProperties.name == "Tiles_5") ||
-                        (tileProperties.name == "Tiles_6") || (tileProperties.name == "Tiles_7") || (tileProperties.name == "Tiles_13") || (tileProperties.name == "Tiles_14") ||
-                        (tileProperties.name == "Tiles_15") || (tileProperties.name == "Tiles_16") || (tileProperties.name == "Tiles_22") || (tileProperties.name == "Tiles_23") ||
-                        (tileProperties.name == "Tiles_24") || (tileProperties.name == "Tiles_25") || (tileProperties.name == "Tiles_30") || (tileProperties.name == "Tiles_31") ||
-                        (tileProperties.name == "Tiles_32") || (tileProperties.name == "Tiles_33"))
+                        (tileProperties.name == "Tiles_6") || (tileProperties.name == "Tiles_13") || (tileProperties.name == "Tiles_14") ||
+                        (tileProperties.name == "Tiles_15") || (tileProperties.name == "Tiles_22") || (tileProperties.name == "Tiles_23") ||
+                        (tileProperties.name == "Tiles_24") || (tileProperties.name == "Tiles_30") || (tileProperties.name == "Tiles_31") ||
+                        (tileProperties.name == "Tiles_32"))
                 {
                     //spawn the rock
                     rockTilemap.SetTile(m_Position, rock);
@@ -125,11 +129,12 @@ public class Powerup_Randomization : MonoBehaviour
         {
             Vector3Int m_Position = new Vector3Int(xCoord, yCoord, 0);
             TileBase tileProperties = groundTilemap.GetTile(m_Position);
+            Debug.Log(tileProperties.name);
             if ((tileProperties.name == "Tiles_3") || (tileProperties.name == "Tiles_29") || (tileProperties.name == "Tiles_4") || (tileProperties.name == "Tiles_5") ||
-                    (tileProperties.name == "Tiles_6") || (tileProperties.name == "Tiles_7") || (tileProperties.name == "Tiles_13") || (tileProperties.name == "Tiles_14") ||
-                    (tileProperties.name == "Tiles_15") || (tileProperties.name == "Tiles_16") || (tileProperties.name == "Tiles_22") || (tileProperties.name == "Tiles_23") ||
-                    (tileProperties.name == "Tiles_24") || (tileProperties.name == "Tiles_25") || (tileProperties.name == "Tiles_30") || (tileProperties.name == "Tiles_31") ||
-                    (tileProperties.name == "Tiles_32") || (tileProperties.name == "Tiles_33"))
+                    (tileProperties.name == "Tiles_6") || (tileProperties.name == "Tiles_13") || (tileProperties.name == "Tiles_14") ||
+                    (tileProperties.name == "Tiles_15") || (tileProperties.name == "Tiles_22") || (tileProperties.name == "Tiles_23") ||
+                    (tileProperties.name == "Tiles_24") || (tileProperties.name == "Tiles_30") || (tileProperties.name == "Tiles_31") ||
+                    (tileProperties.name == "Tiles_32"))
             {
                 //spawn the powerup
                 choice = Random.Range(0, 3);
