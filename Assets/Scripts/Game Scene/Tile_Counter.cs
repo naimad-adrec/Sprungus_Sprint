@@ -53,5 +53,4 @@ public class Tile_Counter : MonoBehaviour
         finalFungusCount = overallCount[1];
         finalDirtCount = overallCount[2];
     }
-
 }
