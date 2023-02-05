@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 
     public void ReturnMenuSwitch()
     {
-        Return_Menu.Setup();
+        //Return_Menu.Setup();
     }
 
 }
