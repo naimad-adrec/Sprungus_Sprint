@@ -11,11 +11,17 @@ public class Shroom_Movement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sp;
 
+    //UI variables
+
     [SerializeField] private Slider waterSlider;
+
+    //Vector variables
 
     private Vector2 playerInput;
     private Vector2 movement;
     private Vector3Int shroomPosition;
+
+    //Movement variables
 
     [SerializeField] private float moveSpeed = 300f;
     [SerializeField] private float noWaterMoveSpeed = 150f;
@@ -24,9 +30,12 @@ public class Shroom_Movement : MonoBehaviour
     private float dirX = 0f;
     private float dirY = 0f;
 
+    //Tilemap variables
 
     [SerializeField] private Tile purpleGrass;
     [SerializeField] private Tilemap groundTilemap;
+
+    //Power-up variables
 
     [SerializeField] private int fertPowerUpTime = 5;
 
@@ -40,6 +49,8 @@ public class Shroom_Movement : MonoBehaviour
         currentMoveSpeed = moveSpeed;
     }
 
+    //Get user input
+
     private void Update()
     {
         dirX = Input.GetAxisRaw("Horizontal P2");
@@ -48,6 +59,8 @@ public class Shroom_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Change animation state upon user input
+
         if (dirX < 0)
         {
             anim.SetInteger("State", 1);
@@ -71,9 +84,13 @@ public class Shroom_Movement : MonoBehaviour
             anim.SetInteger("State", 0);
         }
 
+        //update movement
+
         playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
         movement = new Vector2Int(Mathf.RoundToInt(dirX * currentMoveSpeed * Time.fixedDeltaTime), Mathf.RoundToInt(dirY * currentMoveSpeed * Time.fixedDeltaTime));
         rb.velocity = movement;
+
+        //Drain water rate and half speed if water meter is empty
 
         if ((rb.velocity.x != 0) || (rb.velocity.y != 0))
         {
@@ -96,6 +113,8 @@ public class Shroom_Movement : MonoBehaviour
         groundTilemap.SetTile(shroomPosition, purpleGrass);
     }
 
+    //player collides with water source
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Shroom_Water"))
@@ -104,6 +123,7 @@ public class Shroom_Movement : MonoBehaviour
         }
     }
 
+    //player collides with power-up
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Fert"))
