@@ -31,12 +31,12 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // you are starting the timer at "Start", you can still use the A-button to restart it.
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            currentTime = startTime;
-            timerStarted = true;
-        }
+        //you are starting the timer at "Start", you can still use the A-button to restart it.
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    currentTime = startTime;
+        //    timerStarted = true;
+        //}
 
         if (timerStarted)
         {

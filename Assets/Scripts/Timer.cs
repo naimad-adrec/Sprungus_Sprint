@@ -32,11 +32,11 @@ public class timer : MonoBehaviour
     void Update()
     {
         // you are starting the timer at "Start", you can still use the A-button to restart it.
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            currentTime = startTime;
-            timerStarted = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    currentTime = startTime;
+        //    timerStarted = true;
+        //}
 
         if (timerStarted)
         {
