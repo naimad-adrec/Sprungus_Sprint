@@ -10,6 +10,7 @@ TagManager:
   - Sprout
   - Shroom
   - Fert
+  - Pitfall
   layers:
   - Default
   - TransparentFX
@@ -53,9 +54,9 @@ TagManager:
   - name: Obstacles
     uniqueID: 2124763031
     locked: 0
-  - name: Player
-    uniqueID: 1715189375
-    locked: 0
   - name: Power Ups
     uniqueID: 1819337619
+    locked: 0
+  - name: Player
+    uniqueID: 1715189375
     locked: 0
