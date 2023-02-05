@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class Tile_Counter : MonoBehaviour
 {
     [SerializeField] Tilemap groundTilemap;
     private int grassCount = 0;
-    private int finalGrassCount;
+    public int finalGrassCount;
     private int fungusCount = 0;
-    private int finalFungusCount;
+    public int finalFungusCount;
     private int dirtCount = 0;
     private int finalDirtCount;
 
@@ -52,4 +53,5 @@ public class Tile_Counter : MonoBehaviour
         finalFungusCount = overallCount[1];
         finalDirtCount = overallCount[2];
     }
+
 }
