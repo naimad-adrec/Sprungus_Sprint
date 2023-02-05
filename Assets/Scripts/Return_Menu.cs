@@ -11,13 +11,13 @@ public class Return_Menu : MonoBehaviour
 
     public void SetUp(int winner)
     {
-        gameObject.SetActive(true)
+        gameObject.SetActive(true);
         winnerText.text = winner.ToString() + " WINS";
     }
     public void SliderWinner(int sproutA)
     {
-        gameObject.SetActive(True)
-        sproutAmount.value = sproutA
+        gameObject.SetActive(true);
+        sproutAmount.value = sproutA;
     }
     public void RePlayGame()
     {
