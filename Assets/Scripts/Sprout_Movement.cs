@@ -85,11 +85,6 @@ public class Sprout_Movement : MonoBehaviour
 
         sproutPosition = new Vector3Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), Mathf.RoundToInt(transform.position.z));
         Root();
-
-        //if (Input.GetKeyDown("k"))
-        //{
-        //    waterSlider.value = 0f;
-        //}
     }
 
     private void Root()
@@ -99,11 +94,17 @@ public class Sprout_Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Running");
         if (collision.gameObject.CompareTag("Sprout_Water"))
         {
             waterSlider.value = 1f;
-            Debug.Log("Touvhin");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            waterSlider.value = 1f;
         }
     }
 }

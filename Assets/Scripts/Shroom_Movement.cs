@@ -91,13 +91,20 @@ public class Shroom_Movement : MonoBehaviour
     {
         groundTilemap.SetTile(shroomPosition, purpleGrass);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Running");
         if (collision.gameObject.CompareTag("Shroom_Water"))
         {
             waterSlider.value = 1f;
-            Debug.Log("Touvhin");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            waterSlider.value = 1f;
         }
     }
 }
