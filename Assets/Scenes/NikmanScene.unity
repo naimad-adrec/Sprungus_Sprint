@@ -1751,6 +1751,7 @@ GameObject:
   - component: {fileID: 1840269503}
   - component: {fileID: 1840269505}
   - component: {fileID: 1840269504}
+  - component: {fileID: 1840269506}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -9405,7 +9406,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -17, y: -11, z: 0}
   m_Size: {x: 34, y: 22, z: 1}
-  m_TileAnchor: {x: 0, y: -1, z: 0}
+  m_TileAnchor: {x: 0.5, y: -0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -9424,6 +9425,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1840269506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840269502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91b61739b42c8e46b3e19161f045f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1845335666
 GameObject:
   m_ObjectHideFlags: 0
