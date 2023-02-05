@@ -8,9 +8,12 @@ public class Powerup_Randomization : MonoBehaviour
     [SerializeField] public float minWait;
     [SerializeField] public float maxWait;
     [SerializeField] Tilemap groundTilemap;
+    [SerializeField] Tilemap rockTilemap;
+    [SerializeField] private Tile rock;
+    [SerializeField] private int numRocks = 10;
     //dimensions of the grid
-    private int leftx = -12;
-    private int rightx = +11;
+    private int leftx = -11;
+    private int rightx = +10;
     private int downy = -8;
     private int upy = +7;
 
@@ -33,7 +36,72 @@ public class Powerup_Randomization : MonoBehaviour
     void Awake()
     {
         isSpawning = false;
+        Debug.Log("Starting");
+        for (int i = 0; i < numRocks; i++) //spawns 10 rocks at random locations
+        {
+
+
+            int xCoord = Random.Range(leftx, rightx);
+            int yCoord = Random.Range(downy, upy);
+            spawned = false;
+
+            while (spawned is false)
+            {
+                Vector3Int m_Position = new Vector3Int(xCoord, yCoord, 0);
+                TileBase tileProperties = groundTilemap.GetTile(m_Position);
+
+
+                rockTilemap.SetTile(m_Position, rock);
+
+                if ((tileProperties.name == "Tiles_3") || (tileProperties.name == "Tiles_29") || (tileProperties.name == "Tiles_4") || (tileProperties.name == "Tiles_5") ||
+                        (tileProperties.name == "Tiles_6") || (tileProperties.name == "Tiles_7") || (tileProperties.name == "Tiles_13") || (tileProperties.name == "Tiles_14") ||
+                        (tileProperties.name == "Tiles_15") || (tileProperties.name == "Tiles_16") || (tileProperties.name == "Tiles_22") || (tileProperties.name == "Tiles_23") ||
+                        (tileProperties.name == "Tiles_24") || (tileProperties.name == "Tiles_25") || (tileProperties.name == "Tiles_30") || (tileProperties.name == "Tiles_31") ||
+                        (tileProperties.name == "Tiles_32") || (tileProperties.name == "Tiles_33"))
+                {
+                    //spawn the rock
+                    rockTilemap.SetTile(m_Position, rock);
+                    Debug.Log("Placing Rock");
+                    spawned = true;
+                }
+            }
+        }
+
+
     }
+    //void start()
+    //{
+    //    Debug.Log("Starting");
+    //    for (int i = 0; i < numRocks; i++) //spawns 10 rocks at random locations
+    //    {
+            
+
+    //        int xCoord = Random.Range(leftx, rightx);
+    //        int yCoord = Random.Range(downy, upy);
+    //        spawned = false;
+            
+    //        while (spawned is false)
+    //        {
+    //            Vector3Int m_Position = new Vector3Int(xCoord, yCoord, 0);
+    //            TileBase tileProperties = groundTilemap.GetTile(m_Position);
+                
+
+    //            rockTilemap.SetTile(m_Position, rock);
+
+    //            if ((tileProperties.name == "Tiles_3") || (tileProperties.name == "Tiles_29") || (tileProperties.name == "Tiles_4") || (tileProperties.name == "Tiles_5") ||
+    //                    (tileProperties.name == "Tiles_6") || (tileProperties.name == "Tiles_7") || (tileProperties.name == "Tiles_13") || (tileProperties.name == "Tiles_14") ||
+    //                    (tileProperties.name == "Tiles_15") || (tileProperties.name == "Tiles_16") || (tileProperties.name == "Tiles_22") || (tileProperties.name == "Tiles_23") ||
+    //                    (tileProperties.name == "Tiles_24") || (tileProperties.name == "Tiles_25") || (tileProperties.name == "Tiles_30") || (tileProperties.name == "Tiles_31") ||
+    //                    (tileProperties.name == "Tiles_32") || (tileProperties.name == "Tiles_33"))
+    //            {
+    //                //spawn the rock
+    //                rockTilemap.SetTile(m_Position, rock);
+    //                Debug.Log("Placing Rock");
+    //                spawned = true;
+    //            }
+    //        }
+    //    }
+    //}
 
     void Update()
     {
