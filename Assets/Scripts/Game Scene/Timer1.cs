@@ -8,8 +8,9 @@ public class Timer1 : MonoBehaviour
     [SerializeField] private float startTime;
 
     public Tile_Counter tileCounter;
+    public Return_Menu changeCanvas;
 
-    private float currentTime;
+    public float currentTime;
     private bool timerStarted = false;
 
     // ref var for my TMP text component
@@ -37,6 +38,7 @@ public class Timer1 : MonoBehaviour
                 timerStarted = false;
                 tileCounter.GameOver();
                 currentTime = 0;
+                changeCanvas.changeCanvas();
             }
             timerText.text = "Time " + currentTime.ToString("f1");
         }
