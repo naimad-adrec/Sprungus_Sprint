@@ -1,26 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class timer : MonoBehaviour
+public class Timer1 : MonoBehaviour
 {
-    // start time value
-    [SerializeField] float startTime;
+    [SerializeField] private float startTime;
 
-    // current Time
-    float currentTime;
+    public Tile_Counter tileCounter;
 
-    // whether the timer started?
-    bool timerStarted = false;
+    private float currentTime;
+    private bool timerStarted = false;
 
     // ref var for my TMP text component
-    [SerializeField] TMP_Text timerText;
+    [SerializeField] private TMP_Text timerText;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        //resets the currentTime to the start Time 
+        //resets the currentTime to the start time 
         currentTime = startTime;
         //displays the UI with the currentTime
         timerText.text = currentTime.ToString();
@@ -28,16 +25,8 @@ public class timer : MonoBehaviour
         timerStarted = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // you are starting the timer at "Start", you can still use the A-button to restart it.
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    currentTime = startTime;
-        //    timerStarted = true;
-        //}
-
         if (timerStarted)
         {
             // subtracting the previous frame's duration
@@ -45,11 +34,10 @@ public class timer : MonoBehaviour
             // logic current reached 0?
             if (currentTime <= 0)
             {
-                Debug.Log("timer reached zero");
                 timerStarted = false;
+                tileCounter.GameOver();
                 currentTime = 0;
             }
-
             timerText.text = "Time " + currentTime.ToString("f1");
         }
     }
