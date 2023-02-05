@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Sprout_Water
   - Shroom_Water
+  - Water
+  - Sprout
+  - Shroom
   layers:
   - Default
   - TransparentFX
@@ -51,4 +54,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1715189375
+    locked: 0
+  - name: Power Ups
+    uniqueID: 1819337619
     locked: 0
