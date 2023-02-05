@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Sprout
   - Shroom
+  - Fert
   layers:
   - Default
   - TransparentFX
