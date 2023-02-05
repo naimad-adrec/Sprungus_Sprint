@@ -9405,7 +9405,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -17, y: -11, z: 0}
   m_Size: {x: 34, y: 22, z: 1}
-  m_TileAnchor: {x: 0, y: -1, z: 0}
+  m_TileAnchor: {x: 0.5, y: -0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -10530,7 +10530,7 @@ GameObject:
   - component: {fileID: 2023765819}
   m_Layer: 0
   m_Name: Sprout_Player
-  m_TagString: Untagged
+  m_TagString: Sprout
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10702,7 +10702,7 @@ GameObject:
   - component: {fileID: 2096628342}
   m_Layer: 0
   m_Name: Shroom_Player
-  m_TagString: Untagged
+  m_TagString: Shroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
