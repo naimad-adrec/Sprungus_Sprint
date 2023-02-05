@@ -10,21 +10,24 @@ public class Sprout_Movement : MonoBehaviour
     private BoxCollider2D coll;
     private Animator anim;
     private SpriteRenderer sp;
+
     [SerializeField] private Slider waterSlider;
 
     private Vector2 playerInput;
     private Vector2 movement;
     private Vector3Int sproutPosition;
 
+    [SerializeField] private float moveSpeed = 300f;
+    [SerializeField] private float noWaterMoveSpeed = 150f;
     private float currentMoveSpeed;
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float noWaterMoveSpeed = 2.5f;
     private float dirX = 0f;
     private float dirY = 0f;
-    private float waterLevel = 1f;
+    private float waterDrainRate = 0.075f;
 
     [SerializeField] private Tile greenGrass;
     [SerializeField] private Tilemap groundTilemap;
+
+    [SerializeField] private int fertPowerUpTime = 5;
 
     private void Start()
     {
@@ -36,14 +39,20 @@ public class Sprout_Movement : MonoBehaviour
         currentMoveSpeed = moveSpeed;
     }
 
+    //Recieve Player Input
     private void Update()
     {
         dirX = Input.GetAxisRaw("Horizontal P1");
         dirY = Input.GetAxisRaw("Vertical P1");
+        if(Input.GetKeyDown("k"))
+        {
+            gameover();
+        }
     }
 
     private void FixedUpdate()
     {
+        //Change Animation State depending on direction
         if (dirX < 0)
         {
             anim.SetInteger("State", 1);
@@ -67,12 +76,17 @@ public class Sprout_Movement : MonoBehaviour
             anim.SetInteger("State", 0);
         }
 
+        //Update Velocity and movement
+
         playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
         movement = new Vector2Int(Mathf.RoundToInt(dirX * currentMoveSpeed * Time.fixedDeltaTime) , Mathf.RoundToInt(dirY * currentMoveSpeed * Time.fixedDeltaTime));
         rb.velocity = movement;
+
+        //Drain water rate and half speed if water meter is empty
+
         if ((rb.velocity.x != 0) || (rb.velocity.y != 0))
         {
-            waterSlider.value -= .075f/30f;
+            waterSlider.value -= waterDrainRate/30f;
         }
         if (waterSlider.value <= 0f)
         {
@@ -83,13 +97,62 @@ public class Sprout_Movement : MonoBehaviour
             currentMoveSpeed = moveSpeed;
         }
 
+        //Draw plant tile over current tile
         sproutPosition = new Vector3Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), Mathf.RoundToInt(transform.position.z));
         Root();
     }
 
     private void Root()
     {
+        //Debug.Log(groundTilemap.GetTile(sproutPosition));
         groundTilemap.SetTile(sproutPosition, greenGrass);
+        
+    }
+    private List<int> tileCount()
+    {
+        int grassCount = 0;
+        int fungusCount = 0;
+        int dirtCount = 0;
+        for (int x = -15; x < 15; x++)
+        {
+            for (int y = -8; y < 8; y++)
+            {
+                Vector3Int m_Position = new Vector3Int(x, y, 0);
+                TileBase tileProperties = groundTilemap.GetTile(m_Position);
+                if (tileProperties.name == "Tiles_3")
+                {
+                    grassCount += 1;
+                }
+                else if (tileProperties.name == "Tiles_29")
+                {
+                    fungusCount += 1;
+                }
+                else 
+                {
+                    dirtCount += 1;
+                }
+
+
+            }
+        }
+        List<int> counts = new List<int>
+        {
+            grassCount,
+            fungusCount,
+            dirtCount
+        };
+        return counts;
+    }
+
+
+    private void gameover()
+    {
+        List<int> myList = tileCount();
+        //Debug.Log(tileCount());
+        foreach (var x in myList)
+        {
+            Debug.Log(x.ToString());
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -102,9 +165,20 @@ public class Sprout_Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Fert"))
+        {
+            StartCoroutine(FertPowerUp());
+        }
         if (collision.gameObject.CompareTag("Water"))
         {
             waterSlider.value = 1f;
         }
+    }
+
+    private IEnumerator FertPowerUp()
+    {
+        waterDrainRate = 0f;
+        yield return new WaitForSeconds(fertPowerUpTime);
+        waterDrainRate = 0.075f;
     }
 }

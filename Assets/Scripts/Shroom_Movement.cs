@@ -10,21 +10,25 @@ public class Shroom_Movement : MonoBehaviour
     private BoxCollider2D coll;
     private Animator anim;
     private SpriteRenderer sp;
+
     [SerializeField] private Slider waterSlider;
 
     private Vector2 playerInput;
     private Vector2 movement;
     private Vector3Int shroomPosition;
 
+    [SerializeField] private float moveSpeed = 300f;
+    [SerializeField] private float noWaterMoveSpeed = 150f;
+    [SerializeField] private float waterDrainRate = 0.075f;
     private float currentMoveSpeed;
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float noWaterMoveSpeed = 2.5f;
     private float dirX = 0f;
     private float dirY = 0f;
-    private float waterLevel = 1f;
+
 
     [SerializeField] private Tile purpleGrass;
     [SerializeField] private Tilemap groundTilemap;
+
+    [SerializeField] private int fertPowerUpTime = 5;
 
     private void Start()
     {
@@ -73,7 +77,7 @@ public class Shroom_Movement : MonoBehaviour
 
         if ((rb.velocity.x != 0) || (rb.velocity.y != 0))
         {
-            waterSlider.value -= .075f / 30f;
+            waterSlider.value -= waterDrainRate / 30f;
         }
         if (waterSlider.value == 0f)
         {
@@ -102,9 +106,20 @@ public class Shroom_Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Fert"))
+        {
+            StartCoroutine(FertPowerUp());
+        }
         if (collision.gameObject.CompareTag("Water"))
         {
             waterSlider.value = 1f;
         }
+    }
+
+    private IEnumerator FertPowerUp()
+    {
+        waterDrainRate = 0f;
+        yield return new WaitForSeconds(fertPowerUpTime);
+        waterDrainRate = 0.075f;
     }
 }

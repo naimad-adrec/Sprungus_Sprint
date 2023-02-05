@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Water_Power_Up : MonoBehaviour
+public class Fert_Power_Up : MonoBehaviour
 {
     private Animator anim;
 
@@ -21,10 +21,10 @@ public class Water_Power_Up : MonoBehaviour
 
     private void IsCollected()
     {
-        StartCoroutine(WaterCollectSequence());
+        StartCoroutine(FertCollectSequence());
     }
 
-    private IEnumerator WaterCollectSequence()
+    private IEnumerator FertCollectSequence()
     {
         anim.SetBool("IsCollected", true);
         yield return new WaitForSeconds(0.5f);
