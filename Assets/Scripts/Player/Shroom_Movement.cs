@@ -31,6 +31,7 @@ public class Shroom_Movement : MonoBehaviour
     private float currentMoveSpeed;
     private float dirX = 0f;
     private float dirY = 0f;
+    private bool inPitfall = false;
 
     //Tilemap variables
 
@@ -40,6 +41,7 @@ public class Shroom_Movement : MonoBehaviour
     //Power-up variables
 
     [SerializeField] private int fertPowerUpTime = 5;
+    [SerializeField] private int pitfallPowerUpTime = 5;
     [SerializeField] private int applePowerUpTime = 5;
     public bool big;
 
@@ -91,6 +93,13 @@ public class Shroom_Movement : MonoBehaviour
         }
 
         //update movement
+
+        //Update Velocity and movement
+
+        if (inPitfall) //if in Pitfall, set velocity to 0
+        {
+            currentMoveSpeed = 0f;
+        }
 
         playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
         movement = new Vector2Int(Mathf.RoundToInt(dirX * currentMoveSpeed * Time.fixedDeltaTime), Mathf.RoundToInt(dirY * currentMoveSpeed * Time.fixedDeltaTime));
@@ -157,6 +166,9 @@ public class Shroom_Movement : MonoBehaviour
             audio.Play();
             waterSlider.value = 1f;
         }
+        if (collision.gameObject.CompareTag("Pitfall"))
+        {
+            StartCoroutine(PitfallPowerUp());
         if (collision.gameObject.CompareTag("Apple"))
         {
             audio.Play();
@@ -177,6 +189,16 @@ public class Shroom_Movement : MonoBehaviour
         yield return new WaitForSeconds(fertPowerUpTime);
         waterDrainRate = 0.075f;
     }
+
+    private IEnumerator PitfallPowerUp()
+    {
+        //rb.velocity = new Vector3 (0, 0, 0);
+        inPitfall = true;
+        yield return new WaitForSeconds(pitfallPowerUpTime);
+        inPitfall = false;
+        //rb.velocity = 0f;
+    }
+}
 
     private IEnumerator ApplePowerUp()
     {

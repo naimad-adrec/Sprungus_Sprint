@@ -29,6 +29,7 @@ public class Sprout_Movement : MonoBehaviour
     private float currentMoveSpeed;
     private float dirX = 0f;
     private float dirY = 0f;
+    private bool inPitfall = false;
 
     //tilemap variables
     [SerializeField] private Tile greenGrass;
@@ -36,6 +37,7 @@ public class Sprout_Movement : MonoBehaviour
 
     //power up variables
     [SerializeField] private int fertPowerUpTime = 5;
+    [SerializeField] private int pitfallPowerUpTime = 5;
 
     private void Start()
     {
@@ -82,6 +84,11 @@ public class Sprout_Movement : MonoBehaviour
         }
 
         //Update Velocity and movement
+
+        if (inPitfall) //if in Pitfall, set velocity to 0
+        {
+            currentMoveSpeed = 0f;
+        }
 
         playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
         movement = new Vector2Int(Mathf.RoundToInt(dirX * currentMoveSpeed * Time.fixedDeltaTime) , Mathf.RoundToInt(dirY * currentMoveSpeed * Time.fixedDeltaTime));
@@ -140,6 +147,9 @@ public class Sprout_Movement : MonoBehaviour
             audio.Play();
             waterSlider.value = 1f;
         }
+        if (collision.gameObject.CompareTag("Pitfall"))
+        {
+            StartCoroutine(PitfallPowerUp());
         if (collision.gameObject.CompareTag("Bee"))
         {
             audio.Play();
@@ -152,5 +162,14 @@ public class Sprout_Movement : MonoBehaviour
         waterDrainRate = 0f;
         yield return new WaitForSeconds(fertPowerUpTime);
         waterDrainRate = 0.075f;
+    }
+
+    private IEnumerator PitfallPowerUp()
+    {
+        //rb.velocity = new Vector3 (0, 0, 0);
+        inPitfall = true;
+        yield return new WaitForSeconds(pitfallPowerUpTime);
+        inPitfall = false;
+        //rb.velocity = 0f;
     }
 }
