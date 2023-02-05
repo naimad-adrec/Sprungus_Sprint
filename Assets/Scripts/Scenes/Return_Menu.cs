@@ -7,25 +7,28 @@ using TMPro;
 
 public class Return_Menu : MonoBehaviour
 {
-    private Text text;
+    [SerializeField] TextMeshProUGUI PlayerWins;
     public Tile_Counter tile_Counter;
-    public Slider slider;
-
-    public void Start()
+    [SerializeField] Slider slider;
+    
+    public void Setup()
     {
-        slider.maxValue = (tile_Counter.finalFungusCount + tile_Counter.finalGrassCount);
+        gameObject.SetActive(true);
+
+        slider.maxValue = (tile_Counter.finalFungusCount += tile_Counter.finalGrassCount);
         slider.value = tile_Counter.finalGrassCount;
+
         if (tile_Counter.finalFungusCount > tile_Counter.finalGrassCount)
         {
-            text.text = "FUNGI WINS";
+            PlayerWins.text = "FUNGI WINS";
         }
         if (tile_Counter.finalFungusCount < tile_Counter.finalGrassCount)
         {
-            text.text = "SPROUT WINS";
+            PlayerWins.text = "SPROUT WINS";
         }
         else
         {
-            text.text = "ITS A TIE";
+            PlayerWins.text = "ITS A TIE";
         }       
     }
 

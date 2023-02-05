@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Tile_Counter : MonoBehaviour
 {
@@ -52,12 +52,6 @@ public class Tile_Counter : MonoBehaviour
         finalGrassCount = overallCount[0];
         finalFungusCount = overallCount[1];
         finalDirtCount = overallCount[2];
-        SwitchScene();
-
     }
 
-    private void SwitchScene()
-    {
-        SceneManager.LoadScene(2);
-    }
 }
