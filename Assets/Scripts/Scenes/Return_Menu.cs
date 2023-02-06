@@ -44,7 +44,7 @@ public class Return_Menu : MonoBehaviour
         Debug.Log(tile_Counter.finalGrassCount);
     }
 
-    public void RePlayGame()
+    public void ReplayGame()
     {
         SceneManager.LoadScene(1);
     }
