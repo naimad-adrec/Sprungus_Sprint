@@ -150,6 +150,7 @@ public class Sprout_Movement : MonoBehaviour
         if (collision.gameObject.CompareTag("Pitfall"))
         {
             StartCoroutine(PitfallPowerUp());
+        }
         if (collision.gameObject.CompareTag("Bee"))
         {
             audio.Play();
@@ -166,10 +167,8 @@ public class Sprout_Movement : MonoBehaviour
 
     private IEnumerator PitfallPowerUp()
     {
-        //rb.velocity = new Vector3 (0, 0, 0);
         inPitfall = true;
         yield return new WaitForSeconds(pitfallPowerUpTime);
         inPitfall = false;
-        //rb.velocity = 0f;
     }
 }

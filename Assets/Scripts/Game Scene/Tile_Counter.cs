@@ -14,10 +14,10 @@ public class Tile_Counter : MonoBehaviour
     private int dirtCount = 0;
     private int finalDirtCount;
 
-    [SerializeField] private int leftx = -15; //matches the dimensions of the grid
-    [SerializeField] private int rightx = +14;
-    [SerializeField] private int downy = -8;
-    [SerializeField] private int upy = +7;
+    [SerializeField] private int leftx = -22; //matches the dimensions of the grid
+    [SerializeField] private int rightx = +21;
+    [SerializeField] private int downy = -12;
+    [SerializeField] private int upy = +11;
 
     private List<int> TileCount()
     {
@@ -30,11 +30,11 @@ public class Tile_Counter : MonoBehaviour
                 TileBase tileProperties = groundTilemap.GetTile(m_Position);
                 Debug.Log("Before error?");
                 Debug.Log(tileProperties);
-                if (tileProperties.name == "Tiles_3" || tileProperties.name == "Tiles_12")
+                if (tileProperties.name == "Tiles_3")
                 {
                     grassCount += 1;
                 }
-                else if (tileProperties.name == "Tiles_29" || tileProperties.name == "Tiles_21")
+                else if (tileProperties.name == "Tiles_29")
                 {
                     fungusCount += 1;
                 }
