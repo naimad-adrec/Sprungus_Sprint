@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1715189375
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -768643048, guid: fa3dc6507e705406a9b4cac7c45a59d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,12 +102,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSlider: {fileID: 0}
+  originalSpawnPosition: {x: 9.5, y: 0, z: 0}
   moveSpeed: 300
   noWaterMoveSpeed: 150
   waterDrainRate: 0.075
   purpleGrass: {fileID: 11400000, guid: 54285abbdf81b41a49fac8a4c71dc7d8, type: 2}
-  groundTilemap: {fileID: 0}
+  groundTilemap: {fileID: 8292628472800602112, guid: 29f5844d579bc4cb2a0f29d84c583446, type: 3}
   fertPowerUpTime: 5
+  pitfallPowerUpTime: 5
+  applePowerUpTime: 5
+  big: 0
 --- !u!61 &8031737480087616396
 BoxCollider2D:
   m_ObjectHideFlags: 0

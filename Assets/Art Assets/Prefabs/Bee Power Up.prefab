@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73196542c8c9e4ac88eb429ca5df05cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprout: {fileID: 0}
-  groundTilemap: {fileID: 0}
+  sprout: {fileID: 2364264936898091801, guid: 5268afebba6834f6096d07de55c48f62, type: 3}
+  groundTilemap: {fileID: 8292628472800602112, guid: 29f5844d579bc4cb2a0f29d84c583446, type: 3}
   greenGrass: {fileID: 11400000, guid: cc5cf6cdf1ee54490942ae62c033d3ea, type: 2}
 --- !u!58 &5533312988022494006
 CircleCollider2D:
