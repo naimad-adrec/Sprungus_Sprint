@@ -169,6 +169,7 @@ public class Shroom_Movement : MonoBehaviour
         if (collision.gameObject.CompareTag("Pitfall"))
         {
             StartCoroutine(PitfallPowerUp());
+        }
         if (collision.gameObject.CompareTag("Apple"))
         {
             audio.Play();
@@ -198,7 +199,6 @@ public class Shroom_Movement : MonoBehaviour
         inPitfall = false;
         //rb.velocity = 0f;
     }
-}
 
     private IEnumerator ApplePowerUp()
     {

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1819337619
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1224967899, guid: 0469dacfe1c5a4bc5bf9bdc0438ff543, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73196542c8c9e4ac88eb429ca5df05cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprout: {fileID: 0}
-  groundTilemap: {fileID: 0}
+  sprout: {fileID: 2364264936898091801, guid: 5268afebba6834f6096d07de55c48f62, type: 3}
+  groundTilemap: {fileID: 7753123217702642458, guid: 38e5a1f1fa8484951a19a1ff54d9224f, type: 3}
   greenGrass: {fileID: 11400000, guid: cc5cf6cdf1ee54490942ae62c033d3ea, type: 2}
 --- !u!58 &4900316818794458567
 CircleCollider2D:

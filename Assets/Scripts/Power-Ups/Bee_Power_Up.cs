@@ -10,6 +10,7 @@ public class Bee_Power_Up : MonoBehaviour
     public Sprout_Movement sprout;
     private AudioSource audio;
 
+
     [SerializeField] private Tilemap groundTilemap;
     [SerializeField] private Tile greenGrass;
 
@@ -38,7 +39,7 @@ public class Bee_Power_Up : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Sprout"))
         {
-            beeMovement = sprout.movement;
+            beeMovement = new Vector2(Random.Range(5, 10), Random.Range(5, 10));
             rb.velocity = beeMovement;
             beeCollected = true;
             audio.Play();

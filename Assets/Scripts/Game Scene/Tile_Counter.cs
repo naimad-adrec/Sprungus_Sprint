@@ -28,13 +28,12 @@ public class Tile_Counter : MonoBehaviour
             {
                 Vector3Int m_Position = new Vector3Int(x, y, 0);
                 TileBase tileProperties = groundTilemap.GetTile(m_Position);
-                Debug.Log("Before error?");
-                Debug.Log(tileProperties);
-                if (tileProperties.name == "Tiles_3" || tileProperties.name == "Tiles_12")
+
+                if (tileProperties.name == "Tiles_3")
                 {
                     grassCount += 1;
                 }
-                else if (tileProperties.name == "Tiles_29" || tileProperties.name == "Tiles_21")
+                else if (tileProperties.name == "Tiles_29")
                 {
                     fungusCount += 1;
                 }

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1715189375
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1648236650, guid: 8ef115bc86c4b4b94884cae053a65422, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -148,13 +148,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891d10f2c77c8482abf97a7f3cd594f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shroom: {fileID: 8031737480087616397, guid: f3c785f5f373744788bb182bfc0006b2, type: 3}
   waterSlider: {fileID: 0}
+  movement: {x: 0, y: 0}
+  originalSpawnPosition: {x: -9.5, y: 0, z: 0}
   moveSpeed: 300
   noWaterMoveSpeed: 150
   waterDrainRate: 0.075
   greenGrass: {fileID: 11400000, guid: cc5cf6cdf1ee54490942ae62c033d3ea, type: 2}
-  groundTilemap: {fileID: 0}
+  groundTilemap: {fileID: 3138848073350470556, guid: 38e5a1f1fa8484951a19a1ff54d9224f, type: 3}
   fertPowerUpTime: 5
+  pitfallPowerUpTime: 5
 --- !u!95 &2364264936898091796
 Animator:
   serializedVersion: 4

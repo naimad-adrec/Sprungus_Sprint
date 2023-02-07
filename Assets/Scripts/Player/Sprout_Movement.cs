@@ -128,7 +128,6 @@ public class Sprout_Movement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Shroom") && shroom.big == true)
         {
-            Debug.Log("Spawn");
             transform.position = originalSpawnPosition;
             shroom.big = false;
         }
@@ -150,6 +149,7 @@ public class Sprout_Movement : MonoBehaviour
         if (collision.gameObject.CompareTag("Pitfall"))
         {
             StartCoroutine(PitfallPowerUp());
+        }
         if (collision.gameObject.CompareTag("Bee"))
         {
             audio.Play();
