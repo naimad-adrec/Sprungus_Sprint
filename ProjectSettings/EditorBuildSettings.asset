@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Individual Scene/Munamused New Scene.unity
     guid: 53afcef1fd34548e2b1e32dad238b035
-  - enabled: 1
-    path: Assets/Scenes/End_TitleScene/ResultScene.unity
-    guid: 4048705e0d30f4dc4a26a1174b2f1c29
   m_configObjects: {}
