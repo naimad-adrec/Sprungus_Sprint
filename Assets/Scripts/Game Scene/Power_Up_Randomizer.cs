@@ -23,8 +23,10 @@ public class Power_Up_Randomizer : MonoBehaviour
     private int xCoord;
     private int yCoord;
 
-    private bool isSpawning;
-    private bool spawned;
+    private bool isSpawningPowerUps;
+    private bool isSpawningTraps;
+    private bool spawnedPowerups;
+    private bool spawnedTraps;
 
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
     [SerializeField] private GameObject Pitfall;
@@ -56,13 +58,18 @@ public class Power_Up_Randomizer : MonoBehaviour
 
     private void Update()
     {
-        if (!isSpawning)
+        if (!isSpawningPowerUps)
         {
             float powerUpTimer = Random.Range(minWait, maxWait);
             Invoke("SpawnObject", powerUpTimer);
-            Invoke("SpawnPitfall", 7);
-            isSpawning = true;
+            isSpawningPowerUps = true;
         }
+        if (!isSpawningTraps)
+        {
+            Invoke("SpawnPitfall", 7);
+            isSpawningTraps = true;
+        }
+
     }
 
     private void SpawnObject()
@@ -72,8 +79,8 @@ public class Power_Up_Randomizer : MonoBehaviour
         int xCoord = Random.Range(leftx, rightx);
         int yCoord = Random.Range(downy, upy);
         int choice;
-        spawned = false;
-        while (spawned == false)
+        spawnedPowerups = false;
+        while (spawnedPowerups == false)
         {
             Vector3Int m_Position = new Vector3Int(xCoord, yCoord, 0);
             TileBase tileProperties = groundTilemap.GetTile(m_Position);
@@ -97,10 +104,10 @@ public class Power_Up_Randomizer : MonoBehaviour
                     Instantiate(Bee, m_Position, Quaternion.identity);
                 }
 
-                spawned = true;
+                spawnedPowerups = true;
         }
 
-        isSpawning = false; //end of function
+        isSpawningPowerUps = false; //end of function
     }
 
     private void SpawnPitfall()
@@ -109,24 +116,23 @@ public class Power_Up_Randomizer : MonoBehaviour
 
         int xCoord = Random.Range(leftx, rightx);
         int yCoord = Random.Range(downy, upy);
-        int choice;
-        spawned = false;
-        while (spawned == false)
+        int pitFallChoice;
+        spawnedTraps = false;
+        while (spawnedTraps == false)
         {
             Vector3Int m_Position = new Vector3Int(xCoord, yCoord, 0);
             TileBase tileProperties = groundTilemap.GetTile(m_Position);
 
             //spawn the powerup
-            choice = Random.Range(0, 1);
-            if (choice == 0)
+            pitFallChoice = Random.Range(0, 1);
+            if (pitFallChoice == 0)
             {
                 Instantiate(Pitfall, m_Position, Quaternion.identity);
             }
         
-
-            spawned = true;
+            spawnedTraps = true;
         }
 
-        isSpawning = false; //end of function
+        isSpawningTraps = false; //end of function
     }
 }
