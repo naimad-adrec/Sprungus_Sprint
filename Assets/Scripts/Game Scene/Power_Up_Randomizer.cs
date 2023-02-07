@@ -58,8 +58,9 @@ public class Power_Up_Randomizer : MonoBehaviour
     {
         if (!isSpawning)
         {
-            float timer = Random.Range(minWait, maxWait);
-            Invoke("SpawnObject", timer);
+            float powerUpTimer = Random.Range(minWait, maxWait);
+            Invoke("SpawnObject", powerUpTimer);
+            Invoke("SpawnPitfall", 7);
             isSpawning = true;
         }
     }
@@ -78,10 +79,10 @@ public class Power_Up_Randomizer : MonoBehaviour
             TileBase tileProperties = groundTilemap.GetTile(m_Position);
 
                 //spawn the powerup
-                choice = Random.Range(0, 5);
+                choice = Random.Range(0, 4);
                 if (choice == 0)
                 {
-                    Instantiate(Pitfall, m_Position, Quaternion.identity);
+                    Instantiate(Apple, m_Position, Quaternion.identity);
                 }
                 else if (choice == 1)
                 {
@@ -95,11 +96,35 @@ public class Power_Up_Randomizer : MonoBehaviour
                 {
                     Instantiate(Bee, m_Position, Quaternion.identity);
                 }
-                else if (choice == 4)
-                {
-                    Instantiate(Apple, m_Position, Quaternion.identity);
-                }
+
                 spawned = true;
+        }
+
+        isSpawning = false; //end of function
+    }
+
+    private void SpawnPitfall()
+    {
+        // Code to spanw your Prefab here
+
+        int xCoord = Random.Range(leftx, rightx);
+        int yCoord = Random.Range(downy, upy);
+        int choice;
+        spawned = false;
+        while (spawned == false)
+        {
+            Vector3Int m_Position = new Vector3Int(xCoord, yCoord, 0);
+            TileBase tileProperties = groundTilemap.GetTile(m_Position);
+
+            //spawn the powerup
+            choice = Random.Range(0, 1);
+            if (choice == 0)
+            {
+                Instantiate(Pitfall, m_Position, Quaternion.identity);
+            }
+        
+
+            spawned = true;
         }
 
         isSpawning = false; //end of function

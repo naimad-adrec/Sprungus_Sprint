@@ -38,6 +38,8 @@ public class Sprout_Movement : MonoBehaviour
     //power up variables
     [SerializeField] private int fertPowerUpTime = 5;
     [SerializeField] private int pitfallPowerUpTime = 5;
+    [SerializeField] private int beePowerUpTime = 5;
+    private bool fast = false;
 
     private void Start()
     {
@@ -91,7 +93,16 @@ public class Sprout_Movement : MonoBehaviour
         }
 
         playerInput = new Vector2(playerInput.x, playerInput.y).normalized;
-        movement = new Vector2Int(Mathf.RoundToInt(dirX * currentMoveSpeed * Time.fixedDeltaTime) , Mathf.RoundToInt(dirY * currentMoveSpeed * Time.fixedDeltaTime));
+
+        if (fast == false)
+        {
+            movement = new Vector2Int(Mathf.RoundToInt(dirX * currentMoveSpeed * Time.fixedDeltaTime), Mathf.RoundToInt(dirY * currentMoveSpeed * Time.fixedDeltaTime));
+        }
+        else
+        {
+            movement = new Vector2Int(Mathf.RoundToInt(dirX * (currentMoveSpeed + 150) * Time.fixedDeltaTime), Mathf.RoundToInt(dirY * (currentMoveSpeed + 150) * Time.fixedDeltaTime));
+        }
+        
         rb.velocity = movement;
 
         //Drain water rate and half speed if water meter is empty
@@ -104,7 +115,7 @@ public class Sprout_Movement : MonoBehaviour
         {
             currentMoveSpeed = noWaterMoveSpeed ;
         }
-        if (waterSlider.value > 0f)
+        else if (waterSlider.value > 0f)
         {
             currentMoveSpeed = moveSpeed;
         }
@@ -153,6 +164,8 @@ public class Sprout_Movement : MonoBehaviour
         if (collision.gameObject.CompareTag("Bee"))
         {
             audio.Play();
+            fast = true;
+            StartCoroutine(BeePowerUp());
         }
     }
 
@@ -166,10 +179,14 @@ public class Sprout_Movement : MonoBehaviour
 
     private IEnumerator PitfallPowerUp()
     {
-        //rb.velocity = new Vector3 (0, 0, 0);
         inPitfall = true;
         yield return new WaitForSeconds(pitfallPowerUpTime);
         inPitfall = false;
-        //rb.velocity = 0f;
+    }
+
+    private IEnumerator BeePowerUp()
+    {
+        yield return new WaitForSeconds(beePowerUpTime);
+        fast = false;
     }
 }
